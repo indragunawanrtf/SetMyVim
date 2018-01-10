@@ -1,12 +1,81 @@
-
-
-set mouse=**
 set encoding=utf-8
 
-autocmd! bufwritepost .vimrc source %
+" Automatic Reloading .vimrc
+" autocmd! bufwritepost .vimrc source %
 
 set tabstop=2
 set softtabstop=2
 set expandtab
 set shiftwidth=2
 set autochdir
+
+imap jj <Esc>
+cmap jj <c-c>
+vmap v <Esc>
+
+map ; :
+let g:mapleader=','
+
+
+nnoremap <leader><leader> <c-^>
+nmap <Leader>t :NERDTreeToggle<cr>
+nmap <Leader>n :NERDTreeFind<cr>
+
+set autowrite
+set number
+
+set pastetoggle=<F2>
+set clipboard=unnamed
+
+set hlsearch
+set incsearch
+set ignorecase
+set smartcase
+map <CR> :nohl<CR>
+
+nnoremap <C-H> <C-W><C-H>
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+
+set cursorline
+" set cursorcolumn
+
+set title
+
+filetype plugin on
+
+set undofile
+set undodir=~/.config/vim/undodir
+
+call plug#begin('~/.config/vim/plugged')
+Plug 'morhetz/gruvbox'
+Plug 'sheerun/vim-polyglot'
+Plug 'tpope/vim-surround'
+Plug 'mattn/emmet-vim'
+Plug 'jiangmiao/auto-pairs'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+  map <leader>f :Files<CR>
+  map <C-P> :GFiles<CR>
+  map <C-B> :Buffer<CR>
+Plug 'luochen1990/rainbow'
+  let g:rainbow_active = 1
+Plug 'ap/vim-css-color'
+Plug 'EinfachToll/DidYouMean'
+Plug 'scrooloose/nerdtree'
+Plug 'vim-airline/vim-airline'
+Plug 'ervandew/supertab'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'tpope/vim-vinegar'
+call plug#end()
+
+let g:airline_theme = 'molokai'
+
+set background=dark
+syntax enable
+colorscheme gruvbox
+
+" Display Extra Whitespace
+set list listchars=tab:»·,trail:·
+
