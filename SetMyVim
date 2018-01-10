@@ -1,0 +1,12 @@
+
+
+set mouse=**
+set encoding=utf-8
+
+autocmd! bufwritepost .vimrc source %
+
+set tabstop=2
+set softtabstop=2
+set expandtab
+set shiftwidth=2
+set autochdir
