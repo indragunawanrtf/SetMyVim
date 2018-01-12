@@ -43,38 +43,54 @@ set cursorline
 
 set title
 
-filetype plugin on
-
 set undofile
 set undodir=~/.config/vim/undodir
 
-call plug#begin('~/.config/vim/plugged')
-Plug 'morhetz/gruvbox'
-Plug 'sheerun/vim-polyglot'
-Plug 'tpope/vim-surround'
-Plug 'mattn/emmet-vim'
-Plug 'jiangmiao/auto-pairs'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
+set nocompatible
+filetype off
+
+set rtp+=~/.vim/bundle/Vundle.vim
+
+call vundle#begin()
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'morhetz/gruvbox'
+Plugin 'sheerun/vim-polyglot'
+Plugin 'tpope/vim-surround'
+Plugin 'mattn/emmet-vim'
+Plugin 'jiangmiao/auto-pairs'
+Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plugin 'junegunn/fzf.vim'
   map <leader>f :Files<CR>
   map <C-P> :GFiles<CR>
   map <C-B> :Buffer<CR>
-Plug 'luochen1990/rainbow'
+Plugin 'luochen1990/rainbow'
   let g:rainbow_active = 1
-Plug 'ap/vim-css-color'
-Plug 'EinfachToll/DidYouMean'
-Plug 'scrooloose/nerdtree'
-Plug 'vim-airline/vim-airline'
-Plug 'ervandew/supertab'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'tpope/vim-vinegar'
-call plug#end()
+Plugin 'ap/vim-css-color'
+Plugin 'EinfachToll/DidYouMean'
+Plugin 'scrooloose/nerdtree'
+Plugin 'vim-airline/vim-airline'
+Plugin 'ervandew/supertab'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'tpope/vim-vinegar'
+Plugin 'tpope/vim-dispatch'
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'tpope/vim-rails'
+Plugin 'tpope/vim-pathogen'
+Plugin 'ctrlpvim/ctrlp.vim'
+call vundle#end()
 
 let g:airline_theme = 'molokai'
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#fnamemod = ':t'
+let NERDTreeHijackNetrw = 0
 
+let g:gruvbox_italic=1
 set background=dark
-syntax enable
 colorscheme gruvbox
+
+execute pathogen#infect()
+syntax on
+filetype plugin indent on
 
 " Display Extra Whitespace
 set list listchars=tab:»·,trail:·
